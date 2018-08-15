@@ -36,7 +36,7 @@ $ bash download_dataset.sh apple2orange
 ```bash
 $ python3 build_data.py
 ```
-Example for building data 
+Example for building data . Images in folders should be 256*256 .jpg
 
 ```bash
 $ python build_data.py \
