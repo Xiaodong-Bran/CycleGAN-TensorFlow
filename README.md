@@ -119,7 +119,7 @@ Here are some funny screenshots from TensorBoard when training orange -> apple:
 You can export from a checkpoint to a standalone GraphDef file as follow:
 
 ```bash
-$ python3 export_graph.py --checkpoint_dir checkpoints/${datetime} \
+$ python export_graph.py --checkpoint_dir checkpoints/${datetime} \
                           --XtoY_model apple2orange.pb \
                           --YtoX_model orange2apple.pb \
                           --image_size 256
@@ -127,14 +127,22 @@ $ python3 export_graph.py --checkpoint_dir checkpoints/${datetime} \
 
 
 ## Inference
-After exporting model, you can use it for inference. For example:
+After exporting model, you can use it for inference one image. For example:
 
 ```bash
-python3 inference.py --model pretrained/apple2orange.pb \
+python inference.py --model pretrained/apple2orange.pb \
                      --input input_sample.jpg \
                      --output output_sample.jpg \
                      --image_size 256
 ```
+To inference a batch of image, we can use batch_inference
+```bash
+python batch_inference.py --model pretrained/apple2orange.pb \
+                       --input_dir input_sample_dir \
+                       --output_dir output_sample_dir \
+                       --image_size 256
+```
+
 
 ## Pretrained models
 My pretrained models are available at https://github.com/vanhuyz/CycleGAN-TensorFlow/releases
